@@ -80,8 +80,9 @@
 								<p:commandButton update="Categoria" value="Guardar"
 									icon="pi pi-check" action="#{categoriaVista.insertarCategoria}"
 									oncomplete="PF('nuevoCategoria').hide()" />
-								<p:commandButton value="Cancelar" icon="pi pi-times"
+								<p:commandButton update="Categoria" value="Cancelar" icon="pi pi-times"
 									onclick="PF('nuevoCategoria').hide()"
+									action="#{categoriaVista.refrescar}"
 									class="ui-button-secondary" />
 							</f:facet>
 						</p:dialog>

@@ -20,8 +20,7 @@
 					<p:toolbarGroup>
 						<p:commandButton value="Nuevo Motorista" icon="pi pi-plus"
 							oncomplete="PF('nuevoMotorista').show();"
-							styleClass="ui-button-success">
-							<p:resetInput target="Motorista" />
+							styleClass="ui-button-success" update="Motorista">
 						</p:commandButton>
 					</p:toolbarGroup>
 				</p:toolbar>
@@ -29,6 +28,7 @@
 					widgetVar="dtMotoristas" value="#{motoristaVista.listarMotoristas}"
 					rowKey="#{motorista.idMotorista}" reflow="false"
 					styleClass="motoristas-table">
+
 					<p:column headerText="Cédula" sortBy="#{motorista.cedula}"
 						filterBy="#{motorista.cedula}">
 						<h:outputText value="#{motorista.cedula}" />
@@ -74,7 +74,7 @@
 							<p:outputLabel>Cédula del motorista</p:outputLabel>
 							<p:inputMask id="Cédula"
 								value="#{motoristaVista.nuevoMotorista.cedula}"
-								mask="9999999999" validateMask="true" required="true" />
+								mask="9999999999" validateMask="true" />
 						</div>
 						<div class="p-field">
 							<p:outputLabel>Nombres del motorista</p:outputLabel>
@@ -90,7 +90,7 @@
 							<p:outputLabel>Teléfono del motorista</p:outputLabel>
 							<p:inputMask id="telefono"
 								value="#{motoristaVista.nuevoMotorista.telefono}"
-								mask="9999999999" validateMask="true" required="true" />
+								mask="9999999999" validateMask="true" />
 						</div>
 						<div class="p-field">
 							<p:outputLabel>Correo del motorista</p:outputLabel>
@@ -100,14 +100,15 @@
 						<div class="p-field">
 							<p:outputLabel>Contraseña del motorista</p:outputLabel>
 							<p:inputText id="contraseña"
-								value="#{motoristaVista.nuevoMotorista.contrasenia}" />
+								value="#{motoristaVista.contrasenia}" />
 						</div>
 					</p:outputPanel>
 					<f:facet name="footer">
-						<p:commandButton update="Motorista" value="Guardar"
-							icon="pi pi-check" action="#{motoristaVista.insertarMotorista}"
-							oncomplete="PF('nuevoMotorista').hide()" />
+						<p:commandButton value="Guardar" icon="pi pi-check"
+							action="#{motoristaVista.insertarMotorista}"
+							oncomplete="PF('nuevoMotorista').hide()" update="Motorista" />
 						<p:commandButton value="Cancelar" icon="pi pi-times"
+							action="#{motoristaVista.limpiarDatos}" update="Motorista"
 							onclick="PF('nuevoMotorista').hide()" class="ui-button-secondary" />
 					</f:facet>
 				</p:dialog>

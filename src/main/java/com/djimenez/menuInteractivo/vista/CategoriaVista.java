@@ -47,6 +47,7 @@ public class CategoriaVista implements Serializable {
 			}
 			listarCategorias();
 			limpiar();
+			refrescar();
 			FacesContext.getCurrentInstance().addMessage(null,
 					new FacesMessage(FacesMessage.SEVERITY_INFO, "Categoria Registrado", ""));
 		} catch (Exception e) {
@@ -65,6 +66,7 @@ public class CategoriaVista implements Serializable {
 		categoriaControlador.eliminarCategoria(eliminarCategoria);
 		listarCategorias();
 		limpiar();
+		refrescar();
 		FacesContext.getCurrentInstance().addMessage(null,
 				new FacesMessage(FacesMessage.SEVERITY_INFO, "Categoria Eliminado", ""));
 	}
@@ -72,6 +74,9 @@ public class CategoriaVista implements Serializable {
 	public void limpiar() {
 		nombre = "";
 		descripcion = "";
+	}
+	public void refrescar() {
+		nuevoCategoria = new Categoria();
 	}
 
 	public String getNombre() {

@@ -33,7 +33,6 @@ public class EmpleadoVista implements Serializable {
 	private String contrasenia;
 	private boolean estado;
 	private boolean admin;
-
 	private Empleado nuevoEmpleado = new Empleado();
 	private Empleado actualizarEmpleado, eliminarEmpleado;
 	private List<Empleado> listarEmpleados;
@@ -136,7 +135,7 @@ public class EmpleadoVista implements Serializable {
 		contrasenia = "";
 		nuevoEmpleado = new Empleado();
 	}
-	
+
 	public static String claveEncriptadaSHA1(String password) {
 		try {
 			byte[] buffer = password.getBytes();

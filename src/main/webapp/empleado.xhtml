@@ -66,13 +66,10 @@
 						</p:commandButton>
 					</p:column>
 				</p:dataTable>
-
 				<p:dialog id="dlgEmpleado" widgetVar="nuevoEmpleado"
 					header="Detalles del empleado" modal="true" showEffect="fade"
 					resizable="flase">
-
 					<p:outputPanel class="ui-fluid">
-
 						<div class="p-field">
 							<p:outputLabel>Cédula del empleado</p:outputLabel>
 							<p:inputMask id="Cédula"
@@ -102,8 +99,7 @@
 						</div>
 						<div class="p-field">
 							<p:outputLabel>Contraseña del empleado</p:outputLabel>
-							<p:inputText id="contraseña"
-								value="#{empleadoVista.contrasenia}" />
+							<p:inputText id="contraseña" value="#{empleadoVista.contrasenia}" />
 						</div>
 						<p:outputLabel value="¿Es administrador del sistema?"></p:outputLabel>
 						<div>
@@ -116,7 +112,7 @@
 							action="#{empleadoVista.insertarEmpleado}"
 							oncomplete="PF('nuevoEmpleado').hide()" update="Empleado" />
 						<p:commandButton value="Cancelar" icon="pi pi-times"
-						action="#{empleadoVista.limpiarDatos}" update="Empleado"
+							action="#{empleadoVista.limpiarDatos}" update="Empleado"
 							onclick="PF('nuevoEmpleado').hide()" class="ui-button-secondary" />
 					</f:facet>
 				</p:dialog>

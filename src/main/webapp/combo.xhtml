@@ -63,7 +63,6 @@
 					<p:outputPanel class="ui-fluid">
 						<div class="p-field">
 							<p:outputLabel>Nombre del combo</p:outputLabel>
-
 							<p:inputText id="nombre" value="#{comboVista.nuevoCombo.nombre}" />
 						</div>
 						<div class="p-field">
@@ -80,16 +79,17 @@
 						<div class="p-field">
 							<p:outputLabel>Gráfico</p:outputLabel>
 							<p:inputText id="grafico"
-								value="#{platilloVista.nuevoPlatillo.grafico}" />
+								value="#{comboVista.nuevoCombo.grafico}" />
+							<p:graphicImage style="width:60px; height:60px;"
+								value="#{comboVista.nuevoCombo.grafico}" />
 						</div>
 					</p:outputPanel>
-
 					<f:facet name="footer">
 						<p:commandButton update="Combo" value="Guardar" icon="pi pi-check"
 							action="#{comboVista.insertarCombo}"
 							oncomplete="PF('nuevoCombo').hide()" />
-						<p:commandButton value="Cancelar" icon="pi pi-times"
-						action="#{comboVista.limpiar}" update="dlgCombo"
+						<p:commandButton update="Combo" value="Cancelar"
+							icon="pi pi-times" action="#{comboVista.refrescar}"
 							onclick="PF('nuevoCombo').hide()" class="ui-button-secondary" />
 					</f:facet>
 				</p:dialog>

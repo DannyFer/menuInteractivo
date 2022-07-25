@@ -74,6 +74,10 @@ public class PlatilloVista implements Serializable {
 		nombre = "";
 		descripcion = "";
 		precio = 0.00;
+		nuevoPlatillo = new Platillo();
+	}
+	public void refrescar() {
+		nuevoPlatillo = new Platillo();
 	}
 
 	public String getNombre() {

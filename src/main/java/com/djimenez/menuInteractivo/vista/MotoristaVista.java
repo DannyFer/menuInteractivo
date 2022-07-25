@@ -1,6 +1,8 @@
 package com.djimenez.menuInteractivo.vista;
 
 import java.io.Serializable;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
@@ -25,7 +27,7 @@ public class MotoristaVista implements Serializable {
 	private String contrasenia;
 	private boolean estado;
 	private Motorista nuevoMotorista = new Motorista();
-	private Motorista actualizarMotorista, eliminarMotorista, limpiar;
+	private Motorista actualizarMotorista, eliminarMotorista;
 	private List<Motorista> listarMotoristas;
 	private MotoristaControlador motoristaControlador;
 
@@ -38,23 +40,32 @@ public class MotoristaVista implements Serializable {
 		motoristaControlador = new MotoristaControladorImpl();
 		listarMotoristas = new ArrayList<Motorista>();
 		listarMotoristas();
+		limpiarDatos();
+
 	}
 
 	public void insertarMotorista() {
 		try {
 			if (nuevoMotorista.getIdMotorista() == null) {
 				nuevoMotorista.setEstado(true);
+				nuevoMotorista.setContrasenia(claveEncriptadaSHA1(contrasenia));
 				motoristaControlador.insertarMotorista(nuevoMotorista);
+				limpiarDatos();
 			} else {
+				if (contrasenia != null) {
+					nuevoMotorista.setContrasenia(claveEncriptadaSHA1(contrasenia));
+				}
 				motoristaControlador.actualizarMotorista(nuevoMotorista);
 			}
 			listarMotoristas();
-			limpiar();
+			limpiarDatos();
 			FacesContext.getCurrentInstance().addMessage(null,
 					new FacesMessage(FacesMessage.SEVERITY_INFO, "Motorista Registrado", ""));
 		} catch (Exception e) {
+			limpiarDatos();
 			FacesContext.getCurrentInstance().addMessage(null,
 					new FacesMessage(FacesMessage.SEVERITY_ERROR, "No se pudo Registrar", ""));
+
 		}
 
 	}
@@ -67,18 +78,39 @@ public class MotoristaVista implements Serializable {
 		eliminarMotorista.setEstado(false);
 		motoristaControlador.eliminarMotorista(eliminarMotorista);
 		listarMotoristas();
-		limpiar();
+		limpiarDatos();
 		FacesContext.getCurrentInstance().addMessage(null,
 				new FacesMessage(FacesMessage.SEVERITY_INFO, "Motorista Eliminado", ""));
 	}
 
-	public void limpiar() {
+	public void limpiarDatos() {
 		cedula = "";
 		nombre = "";
 		apellido = "";
 		correo = "";
 		telefono = "";
 		contrasenia = "";
+		nuevoMotorista = new Motorista();
+	}
+
+	public static String claveEncriptadaSHA1(String password) {
+		try {
+			byte[] buffer = password.getBytes();
+			MessageDigest md = MessageDigest.getInstance("SHA-1");
+			md.update(buffer);
+			String valorHash = "";
+			for (byte aux : md.digest()) {
+				int b = aux & 0xff;
+				if (Integer.toHexString(b).length() == 1) {
+					valorHash += "0";
+				}
+				valorHash += Integer.toHexString(b);
+			}
+			return valorHash;
+		} catch (NoSuchAlgorithmException e) {
+			// TODO: handle exception
+			throw new RuntimeException(e);
+		}
 	}
 
 	public String getCedula() {
@@ -159,14 +191,6 @@ public class MotoristaVista implements Serializable {
 
 	public void setEliminarMotorista(Motorista eliminarMotorista) {
 		this.eliminarMotorista = eliminarMotorista;
-	}
-
-	public Motorista getLimpiar() {
-		return limpiar;
-	}
-
-	public void setLimpiar(Motorista limpiar) {
-		this.limpiar = limpiar;
 	}
 
 	public List<Motorista> getListarMotoristas() {

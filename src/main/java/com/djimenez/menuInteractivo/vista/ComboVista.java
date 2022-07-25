@@ -48,6 +48,7 @@ public class ComboVista implements Serializable {
 			}
 			listarCombos();
 			limpiar();
+			refrescar();
 			FacesContext.getCurrentInstance().addMessage(null,
 					new FacesMessage(FacesMessage.SEVERITY_INFO, "Combo Registrado", ""));
 		} catch (Exception e) {
@@ -66,6 +67,7 @@ public class ComboVista implements Serializable {
 		comboControlador.eliminarCombo(eliminarCombo);
 		listarCombos();
 		limpiar();
+		refrescar();
 		FacesContext.getCurrentInstance().addMessage(null,
 				new FacesMessage(FacesMessage.SEVERITY_INFO, "Combo Eliminado", ""));
 	}
@@ -74,6 +76,8 @@ public class ComboVista implements Serializable {
 		nombre = "";
 		descripcion = "";
 		precio = 0.00;
+	}
+	public void refrescar() {
 		nuevoCombo = new Combo();
 	}
 

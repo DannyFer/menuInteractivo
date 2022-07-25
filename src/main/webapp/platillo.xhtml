@@ -64,7 +64,6 @@
 					<p:outputPanel class="ui-fluid">
 						<div class="p-field">
 							<p:outputLabel>Nombre del platillo</p:outputLabel>
-
 							<p:inputText id="nombre"
 								value="#{platilloVista.nuevoPlatillo.nombre}" />
 						</div>
@@ -83,15 +82,16 @@
 							<p:outputLabel>Gráfico</p:outputLabel>
 							<p:inputText id="grafico"
 								value="#{platilloVista.nuevoPlatillo.grafico}" />
-								<p:graphicImage style="width:30px; height:30px;" value="#{platilloVista.nuevoPlatillo.grafico}" />
+							<p:graphicImage style="width:60px; height:60px;"
+								value="#{platilloVista.nuevoPlatillo.grafico}" />
 						</div>
 					</p:outputPanel>
-
 					<f:facet name="footer">
 						<p:commandButton update="Platillo" value="Guardar"
 							icon="pi pi-check" action="#{platilloVista.insertarPlatillo}"
 							oncomplete="PF('nuevoPlatillo').hide()" />
-						<p:commandButton value="Cancelar" icon="pi pi-times"
+						<p:commandButton update="Platillo" value="Cancelar"
+							icon="pi pi-times" action="#{platilloVista.refrescar}"
 							onclick="PF('nuevoPlatillo').hide()" class="ui-button-secondary" />
 					</f:facet>
 				</p:dialog>
