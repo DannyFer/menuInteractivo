@@ -94,12 +94,13 @@
 								symbol=" USD" symbolPosition="s" decimalSeparator="."
 								thousandSeparator="" />
 						</div>
-						<!-- <div>
-							<p:outputLabel value="Gráfico" />
-							<br></br>
-							<p:fileUpload mode="simple" value="Seleccionar"
-								allowTypes="/(\.|\/)(gif|jpe?g|png)$/" />
-						</div> -->
+						<div class="p-field">
+							<p:outputLabel>Gráfico</p:outputLabel>
+							<p:inputText id="grafico"
+								value="#{ingredienteVista.nuevoIngrediente.grafico}" />
+							<p:graphicImage style="width:60px; height:60px;"
+								value="#{ingredienteVista.nuevoIngrediente.grafico}" />
+						</div>
 					</p:outputPanel>
 
 					<f:facet name="footer">
@@ -107,8 +108,9 @@
 							icon="pi pi-check"
 							action="#{ingredienteVista.insertarIngrediente}"
 							oncomplete="PF('nuevoIngrediente').hide()" />
-						<p:commandButton value="Cancelar" icon="pi pi-times"
+						<p:commandButton update="Ingrediente" value="Cancelar" icon="pi pi-times"
 							onclick="PF('nuevoIngrediente').hide()"
+							action="#{ingredienteVista.refrescar}"
 							class="ui-button-secondary" />
 					</f:facet>
 				</p:dialog>

@@ -18,6 +18,7 @@ import com.djimenez.menuInteractivo.modelo.entidad.Ingrediente;
 @ManagedBean
 @ViewScoped
 public class IngredienteVista implements Serializable {
+
 	private static final long serialVersionUID = 1L;
 	private String nombre;
 	private String descripcion;
@@ -63,6 +64,7 @@ public class IngredienteVista implements Serializable {
 			}
 			listarIngredientes();
 			limpiar();
+			refrescar();
 			FacesContext.getCurrentInstance().addMessage(null,
 					new FacesMessage(FacesMessage.SEVERITY_INFO, "Ingrediente Registrado", ""));
 		} catch (Exception e) {
@@ -86,6 +88,7 @@ public class IngredienteVista implements Serializable {
 		ingredienteControlador.eliminarIngrediente(eliminarIngrediente);
 		listarIngredientes();
 		limpiar();
+		refrescar();
 		FacesContext.getCurrentInstance().addMessage(null,
 				new FacesMessage(FacesMessage.SEVERITY_INFO, "Ingrediente Eliminado", ""));
 	}
@@ -94,6 +97,10 @@ public class IngredienteVista implements Serializable {
 		nombre = "";
 		descripcion = "";
 		precio = 0.00;
+	}
+
+	public void refrescar() {
+		nuevoIngrediente = new Ingrediente();
 	}
 
 	public String getNombre() {
