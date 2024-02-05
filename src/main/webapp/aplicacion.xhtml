@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<meta charset="UTF-8"></meta>
+	<title>Insert title here</title>
+</h:head>
+<h:body>
+	<ui:composition template="/recepcion.xhtml">
+		<ui:define name="recepcion">
+			<h:form id="frmAplicacion">
+				<p:growl id="messages" showDetail="false" />
+				<p:toolbar>
+					<p:toolbarGroup>
+						<span style="font-weight: bold">Pedido Aplicación</span>
+						<p:column />
+					</p:toolbarGroup>
+				</p:toolbar>
+				<p:panel id="basic">
+					<h:panelGrid columns="3" id="pnlDetalle">
+						<p:dataTable id="detalles" var="detalle" lazy="false"
+							value="#{aplicacionVista.listarDetalles}">
+							<p:column headerText="Nombre">
+								<h:outputText value="#{detalle.nombre}" />
+							</p:column>
+							<p:column headerText="Cantidad">
+								<p:inputNumber value="#{detalle.cantidad}" decimalPlaces="0">
+									<p:ajax event="change"
+										listener="#{aplicacionVista.calcularPrecio(detalle)}"
+										update=":aplicacion:detalles :aplicacion:pnlTotal"></p:ajax>
+								</p:inputNumber>
+							</p:column>
+							<p:column headerText="Precio">
+								<h:outputText value="#{detalle.precio}" />
+							</p:column>
+						</p:dataTable>
+					</h:panelGrid>
+					<div align="right">
+						<h:panelGrid id="pnlTotal" columns="2" style='text-align: right'>
+							<p:outputLabel value="Subtotal" />
+							<p:inputText value="#{aplicacionVista.subtotal}" />
+							<p:outputLabel value="IVA" />
+							<p:inputText value="#{aplicacionVista.iva}" />
+							<p:outputLabel value="Total" />
+							<p:inputNumber value="#{aplicacionVista.total}" decimalPlaces="2" />
+							<p:column />
+							<p:commandButton value="Guardar" process="@form"
+								actionListener="#{aplicacionVista.guardar()}"></p:commandButton>
+						</h:panelGrid>
+					</div>
+				</p:panel>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

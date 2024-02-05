@@ -3,6 +3,7 @@ package com.djimenez.menuInteractivo.modelo.entidad;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -68,7 +69,9 @@ public class Categoria implements Serializable {
 	@Override
 	public String toString() {
 		return "Categoria [idCategoria=" + idCategoria + ", nombre=" + nombre + ", descripcion=" + descripcion
-				+ ", estado=" + estado + ", lstingredientes=" + lstingredientes + "]";
+				+ ", estado=" + estado + ", lstingredientes=" + lstingredientes + ", getIdCategoria()="
+				+ getIdCategoria() + ", getNombre()=" + getNombre() + ", getDescripcion()=" + getDescripcion()
+				+ ", isEstado()=" + isEstado() + ", getLstingredientes()=" + getLstingredientes() + ", getClass()="
+				+ getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
 	}
-
 }

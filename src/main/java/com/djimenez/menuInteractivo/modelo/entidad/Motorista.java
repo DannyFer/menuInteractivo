@@ -20,8 +20,8 @@ public class Motorista implements Serializable {
 	private String cedula;
 	private String nombre;
 	private String apellido;
-	private String correo;
 	private String telefono;
+	private String correo;
 	private String contrasenia;
 	private boolean estado;
 
@@ -104,7 +104,13 @@ public class Motorista implements Serializable {
 	@Override
 	public String toString() {
 		return "Motorista [idMotorista=" + idMotorista + ", cedula=" + cedula + ", nombre=" + nombre + ", apellido="
-				+ apellido + ", correo=" + correo + ", telefono=" + telefono + ", contrasenia=" + contrasenia
-				+ ", estado=" + estado + ", lstpedidos=" + lstpedidos + "]";
+				+ apellido + ", telefono=" + telefono + ", correo=" + correo + ", contrasenia=" + contrasenia
+				+ ", estado=" + estado + ", lstpedidos=" + lstpedidos + ", getIdMotorista()=" + getIdMotorista()
+				+ ", getCedula()=" + getCedula() + ", getNombre()=" + getNombre() + ", getApellido()=" + getApellido()
+				+ ", getCorreo()=" + getCorreo() + ", getTelefono()=" + getTelefono() + ", getContrasenia()="
+				+ getContrasenia() + ", isEstado()=" + isEstado() + ", getLstpedidos()=" + getLstpedidos()
+				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString()
+				+ "]";
 	}
+
 }

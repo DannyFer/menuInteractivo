@@ -102,6 +102,10 @@ public class Ingrediente implements Serializable {
 	public String toString() {
 		return "Ingrediente [idIngrediente=" + idIngrediente + ", nombre=" + nombre + ", descripcion=" + descripcion
 				+ ", precio=" + precio + ", grafico=" + grafico + ", estado=" + estado + ", lstdetalles=" + lstdetalles
-				+ ", fkCategoria=" + fkCategoria + "]";
+				+ ", fkCategoria=" + fkCategoria + ", getIdIngrediente()=" + getIdIngrediente() + ", getNombre()="
+				+ getNombre() + ", getDescripcion()=" + getDescripcion() + ", getPrecio()=" + getPrecio()
+				+ ", getGrafico()=" + getGrafico() + ", isEstado()=" + isEstado() + ", getLstdetalles()="
+				+ getLstdetalles() + ", getFkCategoria()=" + getFkCategoria() + ", getClass()=" + getClass()
+				+ ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
 	}
 }

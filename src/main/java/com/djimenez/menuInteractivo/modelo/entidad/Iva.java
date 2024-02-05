@@ -56,7 +56,10 @@ public class Iva implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Iva [idIva=" + idIva + ", iva=" + iva + ", fecha=" + fecha + ", pedido=" + pedido + "]";
+		return "Iva [idIva=" + idIva + ", iva=" + iva + ", fecha=" + fecha + ", pedido=" + pedido + ", getIdIva()="
+				+ getIdIva() + ", getIva()=" + getIva() + ", getFecha()=" + getFecha() + ", getPedido()=" + getPedido()
+				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString()
+				+ "]";
 	}
 
 }

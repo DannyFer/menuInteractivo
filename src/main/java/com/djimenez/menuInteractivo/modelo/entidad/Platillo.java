@@ -1,14 +1,10 @@
 package com.djimenez.menuInteractivo.modelo.entidad;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
 @Entity
 public class Platillo implements Serializable {
@@ -23,9 +19,9 @@ public class Platillo implements Serializable {
 	private String grafico;
 	private boolean estado;
 	
-	// relaciones
+	/*relaciones
 	@OneToMany(mappedBy = "fkPlatillo", cascade = CascadeType.REFRESH)
-	private List<Detalle> lstdetalles = new ArrayList<Detalle>();
+	private List<Detalle> lstdetalles = new ArrayList<Detalle>();*/
 
 	public Integer getIdPlatillo() {
 		return idPlatillo;
@@ -75,18 +71,13 @@ public class Platillo implements Serializable {
 		this.estado = estado;
 	}
 
-	public List<Detalle> getLstdetalles() {
-		return lstdetalles;
-	}
-
-	public void setLstdetalles(List<Detalle> lstdetalles) {
-		this.lstdetalles = lstdetalles;
-	}
-
 	@Override
 	public String toString() {
 		return "Platillo [idPlatillo=" + idPlatillo + ", nombre=" + nombre + ", descripcion=" + descripcion
-				+ ", precio=" + precio + ", grafico=" + grafico + ", estado=" + estado + ", lstdetalles=" + lstdetalles
+				+ ", precio=" + precio + ", grafico=" + grafico + ", estado=" + estado + ", getIdPlatillo()="
+				+ getIdPlatillo() + ", getNombre()=" + getNombre() + ", getDescripcion()=" + getDescripcion()
+				+ ", getPrecio()=" + getPrecio() + ", getGrafico()=" + getGrafico() + ", isEstado()=" + isEstado()
+				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString()
 				+ "]";
 	}
 

@@ -142,9 +142,15 @@ public class Pedido implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Pedido [idPedido=" + idPedido + ", subtotal=" + subtotal + ", iva=" + iva + ", total=" + total
-				+ ", fkCliente=" + fkCliente + ", fkEmpleado=" + fkEmpleado + ", fkMotorista=" + fkMotorista
-				+ ", fkIngrediente=" + fkIngrediente + ", lstdetalles=" + lstdetalles + ", fkIva=" + fkIva + "]";
+		return "Pedido [idPedido=" + idPedido + ", fecha=" + fecha + ", subtotal=" + subtotal + ", iva=" + iva
+				+ ", total=" + total + ", fkCliente=" + fkCliente + ", fkEmpleado=" + fkEmpleado + ", fkMotorista="
+				+ fkMotorista + ", fkIngrediente=" + fkIngrediente + ", lstdetalles=" + lstdetalles + ", fkIva=" + fkIva
+				+ ", getIdPedido()=" + getIdPedido() + ", getFecha()=" + getFecha() + ", getSubtotal()=" + getSubtotal()
+				+ ", getIva()=" + getIva() + ", getTotal()=" + getTotal() + ", getFkCliente()=" + getFkCliente()
+				+ ", getFkEmpleado()=" + getFkEmpleado() + ", getFkMotorista()=" + getFkMotorista()
+				+ ", getFkIngrediente()=" + getFkIngrediente() + ", getLstdetalles()=" + getLstdetalles()
+				+ ", getFkIva()=" + getFkIva() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
+				+ ", toString()=" + super.toString() + "]";
 	}
 
 }

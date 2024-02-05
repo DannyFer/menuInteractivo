@@ -106,7 +106,10 @@ public class Detalle implements Serializable {
 	public String toString() {
 		return "Detalle [idDetalle=" + idDetalle + ", nombre=" + nombre + ", cantidad=" + cantidad + ", precio="
 				+ precio + ", fkPedido=" + fkPedido + ", fkCombo=" + fkCombo + ", fkPlatillo=" + fkPlatillo
-				+ ", fkIngrediente=" + fkIngrediente + "]";
+				+ ", fkIngrediente=" + fkIngrediente + ", getIdDetalle()=" + getIdDetalle() + ", getNombre()="
+				+ getNombre() + ", getCantidad()=" + getCantidad() + ", getPrecio()=" + getPrecio() + ", getFkPedido()="
+				+ getFkPedido() + ", getFkCombo()=" + getFkCombo() + ", getFkPlatillo()=" + getFkPlatillo()
+				+ ", getFkIngrediente()=" + getFkIngrediente() + ", getClass()=" + getClass() + ", hashCode()="
+				+ hashCode() + ", toString()=" + super.toString() + "]";
 	}
-
 }

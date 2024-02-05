@@ -13,5 +13,5 @@ public interface IngredienteControlador {
 	public void eliminarIngrediente(Ingrediente eliminarIngrediente);
 
 	public List<Ingrediente> listarIngrediente();
-
+	
 }

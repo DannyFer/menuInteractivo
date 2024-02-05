@@ -1,14 +1,11 @@
 package com.djimenez.menuInteractivo.modelo.entidad;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.persistence.CascadeType;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
 @Entity
 public class Combo implements Serializable {
@@ -23,9 +20,9 @@ public class Combo implements Serializable {
 	private String grafico;
 	private boolean estado;
 
-	// relaciones
+	/*relaciones
 	@OneToMany(mappedBy = "fkCombo", cascade = CascadeType.REFRESH)
-	private List<Detalle> lstdetalles = new ArrayList<Detalle>();
+	private List<Detalle> lstdetalles = new ArrayList<Detalle>();*/
 
 	public Integer getIdCombo() {
 		return idCombo;
@@ -75,18 +72,4 @@ public class Combo implements Serializable {
 		this.estado = estado;
 	}
 
-	public List<Detalle> getLstdetalles() {
-		return lstdetalles;
-	}
-
-	public void setLstdetalles(List<Detalle> lstdetalles) {
-		this.lstdetalles = lstdetalles;
-	}
-
-	@Override
-	public String toString() {
-		return "Combo [idCombo=" + idCombo + ", nombre=" + nombre + ", descripcion=" + descripcion + ", precio="
-				+ precio + ", grafico=" + grafico + ", estado=" + estado + ", lstdetalles=" + lstdetalles + "]";
-	}
-	
 }

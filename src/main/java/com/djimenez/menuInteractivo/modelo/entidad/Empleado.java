@@ -20,8 +20,8 @@ public class Empleado implements Serializable {
 	private String cedula;
 	private String nombre;
 	private String apellido;
-	private String correo;
 	private String telefono;
+	private String correo;
 	private String contrasenia;
 	private boolean estado;
 	private boolean admin;
@@ -113,8 +113,13 @@ public class Empleado implements Serializable {
 	@Override
 	public String toString() {
 		return "Empleado [idEmpleado=" + idEmpleado + ", cedula=" + cedula + ", nombre=" + nombre + ", apellido="
-				+ apellido + ", correo=" + correo + ", telefono=" + telefono + ", contrasenia=" + contrasenia
-				+ ", estado=" + estado + ", admin=" + admin + ", lstpedidos=" + lstpedidos + "]";
+				+ apellido + ", telefono=" + telefono + ", correo=" + correo + ", contrasenia=" + contrasenia
+				+ ", estado=" + estado + ", admin=" + admin + ", lstpedidos=" + lstpedidos + ", getIdEmpleado()="
+				+ getIdEmpleado() + ", getCedula()=" + getCedula() + ", getNombre()=" + getNombre() + ", getApellido()="
+				+ getApellido() + ", getCorreo()=" + getCorreo() + ", getTelefono()=" + getTelefono()
+				+ ", getContrasenia()=" + getContrasenia() + ", isEstado()=" + isEstado() + ", isAdmin()=" + isAdmin()
+				+ ", getLstpedidos()=" + getLstpedidos() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
+				+ ", toString()=" + super.toString() + "]";
 	}
 
 }

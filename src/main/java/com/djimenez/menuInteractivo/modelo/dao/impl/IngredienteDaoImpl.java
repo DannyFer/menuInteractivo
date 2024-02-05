@@ -46,7 +46,7 @@ public class IngredienteDaoImpl extends GenericaDaoImpl<Ingrediente> implements 
 				.createQuery("SELECT c FROM Ingrediente c WHERE c.estado=true order by c.idIngrediente", Ingrediente.class);
 		return query.getResultList();
 	}
-
+	
 	public Ingrediente ingredienteId(Integer idIngrediente) {
 		TypedQuery<Ingrediente> tc = this.entityManager.createQuery(
 				"SELECT c FROM Ingrediente c WHERE c.estadoIngrediente = true and c.idIngrediente=:idIngrediente order by c.idIngrediente",

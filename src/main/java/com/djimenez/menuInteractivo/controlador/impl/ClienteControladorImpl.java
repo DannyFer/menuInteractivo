@@ -38,5 +38,5 @@ public class ClienteControladorImpl implements ClienteControlador {
 		clienteDao = new ClienteDaoImpl();
 		return clienteDao.buscarPorCorreoCliente(correo);
 	}
-	
+
 }

@@ -13,4 +13,5 @@ public interface IngredienteDao {
 	public void eliminarIngrediente(Ingrediente eliminarIngrediente);
 
 	public List<Ingrediente> listarIngrediente();
+	
 }

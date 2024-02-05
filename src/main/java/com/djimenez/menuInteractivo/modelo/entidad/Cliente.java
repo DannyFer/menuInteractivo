@@ -1,14 +1,11 @@
 package com.djimenez.menuInteractivo.modelo.entidad;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.persistence.CascadeType;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
 
 @Entity
@@ -25,9 +22,9 @@ public class Cliente implements Serializable {
 	private String contrasenia;
 	private boolean estado;
 
-	// relaciones
+	/*relaciones
 	@OneToMany(mappedBy = "fkCliente", cascade = CascadeType.REFRESH)
-	private List<Pedido> lstpedidos = new ArrayList<Pedido>();
+	private List<Pedido> lstpedidos = new ArrayList<Pedido>();*/
 
 	public Integer getIdCliente() {
 		return idCliente;
@@ -83,21 +80,6 @@ public class Cliente implements Serializable {
 
 	public void setEstado(boolean estado) {
 		this.estado = estado;
-	}
-
-	public List<Pedido> getLstpedidos() {
-		return lstpedidos;
-	}
-
-	public void setLstpedidos(List<Pedido> lstpedidos) {
-		this.lstpedidos = lstpedidos;
-	}
-
-	@Override
-	public String toString() {
-		return "Cliente [idCliente=" + idCliente + ", nombre=" + nombre + ", apellido=" + apellido + ", telefono="
-				+ telefono + ", correo=" + correo + ", contrasenia=" + contrasenia + ", estado=" + estado
-				+ ", lstpedidos=" + lstpedidos + "]";
 	}
 
 }

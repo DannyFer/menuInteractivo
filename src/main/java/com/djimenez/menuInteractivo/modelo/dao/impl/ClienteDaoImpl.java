@@ -39,7 +39,7 @@ public class ClienteDaoImpl extends GenericaDaoImpl<Cliente> implements ClienteD
 
 		}
 	}
-
+	
 	@Override
 	public List<Cliente> listarCliente() {
 		TypedQuery<Cliente> query = this.entityManager
